@@ -53,15 +53,26 @@ Keep the structure clean and document what you build.
 Follow this workflow so we keep the repo organized:
 
 1. **Fork** this repository
-2. **Clone your fork** onto your machine: `git clone <your-fork-url>`
-3. Create a new branch for your feature: `git checkout -b feature/your-feature-name`
+2. **Clone your fork** onto your machine
+  ```
+  git clone <your-fork-url>
+  ```
+3. Create a new branch for your feature
+  ```
+  git checkout -b feature/your-feature-name
+  ```
 4. Implement your changes
+
+  - Add pages, components, or UI improvements
+  - Follow the color palette and fonts
+  - Keep code readable
+
 5. **Commit** and **push** your changes
-```bash
-git add .
-git commit -m "Add: short description of feature"
-git push origin feature/your-feature-name
-```
+  ```bash
+  git add .
+  git commit -m "Add: short description of feature"
+  git push origin feature/your-feature-name
+  ```
 6. Open a **Merge Request / Pull Request** to the main repository
 7. After review and approval, your code will be merged into the final website 🎉
 
