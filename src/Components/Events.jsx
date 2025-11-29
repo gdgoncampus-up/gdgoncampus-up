@@ -1,10 +1,10 @@
 import React from "react";
 import "./Events.css";
 
-import cyber from "../assets/react.svg";
-import vibe from "../assets/react.svg";
-import meet from "../assets/react.svg";
-import advent from "../assets/react.svg";
+import cyber from "../assets/e2fb14e9-5eca-4579-9504-b1047207e8d1.JPG";
+import vibe from "../assets/IMG_1482.JPG";
+import meet from "../assets/Vibe.JPG";
+import advent from "../assets/48831daf-53e4-44b0-9682-a3bbed3714a4.JPG";
 
 export default function Events() {
   const events = [

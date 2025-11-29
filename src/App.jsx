@@ -1,18 +1,11 @@
-<<<<<<< HEAD
-import Events from './Components/Events'
 
-function App() {
-  return (
-    <>
-      <Events />
-    </>
-=======
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import'./App.css'
 import Header from './components/Header'
 import Explore from './components/Explore'
+import Events from './Components/Events'
 
 function App() {
  
@@ -21,8 +14,9 @@ function App() {
     <div >
       <Header></Header>
       <Explore></Explore>
+      <Events></Events>
     </div>
->>>>>>> 8cfecb1 (push)
+
   )
 }
 
