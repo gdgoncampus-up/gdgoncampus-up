@@ -62,11 +62,9 @@ Follow this workflow so we keep the repo organized:
   git checkout -b feature/your-feature-name
   ```
 4. Implement your changes
-
   - Add pages, components, or UI improvements
   - Follow the color palette and fonts
   - Keep code readable
-
 5. **Commit** and **push** your changes
   ```bash
   git add .
