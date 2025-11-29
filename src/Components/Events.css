@@ -1,0 +1,100 @@
+.events-wrapper {
+  width: 100%;
+  padding: 60px 20px;
+}
+
+.events-title {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 60px;
+  color: #1a1a1a;
+}
+
+/* FULL WIDTH FIX — NEMA PRESECHENO */
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  max-width: 1400px;   /* pogolemo za širok ekran */
+  padding: 0 20px;     /* dodadeno за да не сече */
+  margin: 0 auto;
+}
+
+/* CARD */
+.event-row {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5; /* light siv background */
+  border-radius: 22px;
+  padding: 30px;
+  gap: 35px;
+  border-left: 12px solid transparent;
+
+  /* убавa Google Material сенка */
+  box-shadow: 0px 12px 28px rgba(0, 0, 0, 0.08);
+
+  transition: 0.25s ease;
+}
+
+.event-row:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 20px 45px rgba(0, 0, 0, 0.14);
+}
+
+/* GDG COLORS */
+.event-row:nth-child(1) {
+  border-left-color: #4285f4;
+}
+.event-row:nth-child(2) {
+  border-left-color: #ea4335;
+}
+.event-row:nth-child(3) {
+  border-left-color: #fbbc05;
+}
+.event-row:nth-child(4) {
+  border-left-color: #34a853;
+}
+
+/* IMAGE */
+.event-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 18px;
+  object-fit: cover;
+  background: #eaeaea;
+  padding: 12px;
+}
+
+/* TEXT */
+.event-text h3 {
+  font-size: 30px;
+  margin: 0 0 12px 0;
+  font-weight: 800;
+  color: #202124;
+}
+
+.event-text p {
+  font-size: 18px;
+  line-height: 1.65;
+  color: #3c4043;
+  max-width: 850px;
+
+  /* прави го текстот ПОУБАВ */
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .event-row {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .event-img {
+    width: 220px;
+    height: 220px;
+  }
+}
