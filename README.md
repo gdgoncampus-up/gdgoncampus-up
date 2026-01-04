@@ -287,7 +287,7 @@ Create `app/opengraph-image.png` (1200x630px) for social sharing previews.
 ## 📱 Progressive Web App (PWA)
 To make the site installable:
 
-```shell
+```bash
 npm install next-pwa
 ```
 
