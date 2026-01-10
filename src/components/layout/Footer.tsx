@@ -21,7 +21,7 @@ export default function Footer() {
                         </p>
                         <div className="flex space-x-4">
                             <a
-                                href="https://instagram.com/gdsc.primorska"
+                                href="https://instagram.com/gdgoncampus.up"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2 rounded-lg bg-dark-700 hover:bg-google-red transition-colors"
@@ -30,7 +30,7 @@ export default function Footer() {
                                 <Instagram className="w-5 h-5" />
                             </a>
                             <a
-                                href="https://github.com/gdg-primorska"
+                                href="https://github.com/gdgoncampus-up"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2 rounded-lg bg-dark-700 hover:bg-google-blue transition-colors"
