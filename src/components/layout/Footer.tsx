@@ -124,6 +124,9 @@ export default function Footer() {
                             Student Council
                         </a>
                     </div>
+                    <a href="https://studo.com#org=8fb1c87f9a" className="block mx-auto w-fit mt-6">
+                        <Image src={"https://studo.co/assets/logo/studo_logo_red_en.png"} width={30} height={30} className={"w-30"} alt={"Studo Logo"}/>
+                    </a>
                 </div>
 
                 {/* Bottom Bar */}
