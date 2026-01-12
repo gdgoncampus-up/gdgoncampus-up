@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Github, Linkedin, Instagram, Mail } from 'lucide-react'
+import Image from "next/image";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear()
@@ -128,6 +129,11 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="border-t border-dark-700 pt-8 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-400">
                     <p>© {currentYear} GDG on Campus University of Primorska. All rights reserved.</p>
+                    <p>
+                        <a href="https://studo.com#org=8fb1c87f9a">
+                            <Image src={"https://studo.co/assets/logo/studo_logo_red_en.png"} width={30} height={30} className={"w-30"} alt={"Studo Logo"}/>
+                        </a>
+                    </p>
                     <p className="mt-2 sm:mt-0">
                         Built with ❤️ by the GDG Team
                     </p>
