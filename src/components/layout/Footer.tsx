@@ -131,7 +131,7 @@ export default function Footer() {
                     <p>© {currentYear} GDG on Campus University of Primorska. All rights reserved.</p>
                     <p>
                         <a href="https://studo.com#org=8fb1c87f9a">
-                            <Image src={"https://studo.co/assets/logo/studo_logo_red_en.png"} width={30} height={30} className={"w-30 hidden"} alt={"Studo Logo"}/>
+                            <Image src={"https://studo.co/assets/logo/studo_logo_red_en.png"} width={30} height={30} className={"w-30"} alt={"Studo Logo"}/>
                         </a>
                     </p>
                     <p className="mt-2 sm:mt-0">
