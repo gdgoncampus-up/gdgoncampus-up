@@ -26,8 +26,20 @@ export default function RootLayout({
 }: {
     children: React.ReactNode
 }) {
+    const themeScript = `
+        try {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'light' || theme === 'dark') {
+                document.documentElement.dataset.theme = theme;
+            }
+        } catch {}
+    `
+
     return (
-        <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+        <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+            <head>
+                <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+            </head>
             <body>
                 <Header />
                 <main className="min-h-screen">

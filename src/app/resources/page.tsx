@@ -110,7 +110,7 @@ export default function ResourcesPage() {
                 >
                     <h3 className="text-3xl font-bold mb-4">Have a resource to share?</h3>
                     <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-                        Know of great learning materials or tools? Let us know and we'll add them!
+                        Know of great learning materials or tools? Let us know and we{"'"}ll add them!
                     </p>
                     <a
                         href="mailto:gdgoncampus.up@gmail.com"

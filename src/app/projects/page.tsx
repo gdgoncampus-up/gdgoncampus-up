@@ -1,19 +1,6 @@
 'use client'
 
-import { Github, ExternalLink } from 'lucide-react'
 import { motion } from 'framer-motion'
-
-// Sample projects - replace with your actual data
-const projects = [
-    {
-        id: '1',
-        title: 'Sample Project 1',
-        description: 'A cool project built by our community members',
-        tags: ['React', 'TypeScript', 'Tailwind'],
-        github: 'https://github.com/gdg-primorska/project1',
-        demo: 'https://project1.demo',
-    },
-]
 
 export default function ProjectsPage() {
     return (
@@ -33,7 +20,7 @@ export default function ProjectsPage() {
                 </motion.div>
 
                 <div className="text-center py-20">
-                    <p className="text-gray-400 mb-4">Coming soon! We're collecting amazing projects from our community.</p>
+                    <p className="text-gray-400 mb-4">Coming soon! We{"'"}re collecting amazing projects from our community.</p>
                     <a
                         href="mailto:gdgoncampus.up@gmail.com"
                         className="text-google-blue hover:text-google-blue/80"

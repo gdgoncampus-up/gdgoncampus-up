@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Calendar, MapPin, Users, ArrowRight } from 'lucide-react'
+import { Calendar, MapPin, ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { events } from '@/lib/data/events'
 import { formatDate } from '@/lib/utils/helpers'
