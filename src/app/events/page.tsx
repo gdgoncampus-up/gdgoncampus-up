@@ -80,31 +80,28 @@ export default function EventsPage() {
                         <div className="flex gap-2">
                             <button
                                 onClick={() => setFilter('all')}
-                                className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                                    filter === 'all'
+                                className={`px-4 py-2 rounded-lg font-medium transition-all ${filter === 'all'
                                         ? 'bg-google-blue text-white'
-                                        : 'bg-dark-800 text-gray-400 hover:text-white border border-dark-700'
-                                }`}
+                                        : 'bg-dark-800 text-gray-400 hover:text-foreground border border-dark-700'
+                                    }`}
                             >
                                 All Events
                             </button>
                             <button
                                 onClick={() => setFilter('upcoming')}
-                                className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                                    filter === 'upcoming'
+                                className={`px-4 py-2 rounded-lg font-medium transition-all ${filter === 'upcoming'
                                         ? 'bg-google-green text-white'
-                                        : 'bg-dark-800 text-gray-400 hover:text-white border border-dark-700'
-                                }`}
+                                        : 'bg-dark-800 text-gray-400 hover:text-foreground border border-dark-700'
+                                    }`}
                             >
                                 Upcoming
                             </button>
                             <button
                                 onClick={() => setFilter('past')}
-                                className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                                    filter === 'past'
+                                className={`px-4 py-2 rounded-lg font-medium transition-all ${filter === 'past'
                                         ? 'bg-google-yellow text-dark-900'
-                                        : 'bg-dark-800 text-gray-400 hover:text-white border border-dark-700'
-                                }`}
+                                        : 'bg-dark-800 text-gray-400 hover:text-foreground border border-dark-700'
+                                    }`}
                             >
                                 Past
                             </button>
@@ -116,7 +113,7 @@ export default function EventsPage() {
                             <select
                                 value={typeFilter}
                                 onChange={(e) => setTypeFilter(e.target.value)}
-                                className="bg-dark-800 border border-dark-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-google-blue"
+                                className="bg-dark-800 border border-dark-700 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-google-blue"
                             >
                                 {eventTypes.map(type => (
                                     <option key={type} value={type}>
@@ -195,8 +192,8 @@ export default function EventsPage() {
                                                 key={tag}
                                                 className="px-2 py-1 text-xs rounded-md bg-dark-700 text-gray-300"
                                             >
-                        {tag}
-                      </span>
+                                                {tag}
+                                            </span>
                                         ))}
                                     </div>
 

@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils/helpers'
+import ThemeToggle from './ThemeToggle'
 
 interface NavigationProps {
     mobile?: boolean
@@ -41,7 +42,7 @@ export default function Navigation({ mobile = false, onNavigate }: NavigationPro
                                     mobile ? 'block py-2 px-4 rounded-lg' : 'py-2',
                                     isActive
                                         ? 'text-google-blue'
-                                        : 'text-gray-300 hover:text-white',
+                                        : 'text-gray-300 hover:text-foreground',
                                     mobile && isActive && 'bg-dark-700'
                                 )}
                             >
@@ -70,6 +71,10 @@ export default function Navigation({ mobile = false, onNavigate }: NavigationPro
                     >
                         Join Community
                     </Link>
+                </li>
+
+                <li className={mobile ? '' : '-ml-4'}>
+                    <ThemeToggle mobile={mobile} />
                 </li>
             </ul>
         </nav>

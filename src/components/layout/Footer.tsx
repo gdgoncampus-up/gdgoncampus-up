@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Github, Linkedin, Instagram, Mail } from 'lucide-react'
+import { Github, Instagram, Mail } from 'lucide-react'
 
 export default function Footer() {
     const currentYear = new Date().getFullYear()
@@ -12,7 +12,7 @@ export default function Footer() {
                     <div className="md:col-span-2">
                         <h3 className="text-xl font-mono font-bold mb-4">
                             <span className="text-google-blue">&lt;</span>
-                            <span className="text-white">GDG Primorska</span>
+                            <span className="text-foreground">GDG Primorska</span>
                             <span className="text-google-red"> /&gt;</span>
                         </h3>
                         <p className="text-gray-400 mb-4 max-w-md">
@@ -109,7 +109,7 @@ export default function Footer() {
                             href="https://www.famnit.upr.si/en/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-gray-400 hover:text-white transition-colors"
+                            className="text-gray-400 hover:text-foreground transition-colors"
                         >
                             FAMNIT
                         </a>
@@ -118,7 +118,7 @@ export default function Footer() {
                             href="https://www.famnit.upr.si/sl/studenti/studentski-svet"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-gray-400 hover:text-white transition-colors"
+                            className="text-gray-400 hover:text-foreground transition-colors"
                         >
                             Student Council
                         </a>

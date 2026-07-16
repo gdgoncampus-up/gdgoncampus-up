@@ -19,7 +19,7 @@ export default function TeamPage() {
                         Meet Our Team
                     </h1>
                     <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                        The passionate individuals driving GDG Primorska forward. Together, we're building a thriving tech community.
+                        The passionate individuals driving GDG Primorska forward. Together, we{"'"}re building a thriving tech community.
                     </p>
                 </motion.div>
 
@@ -104,8 +104,8 @@ export default function TeamPage() {
                 >
                     <h3 className="text-3xl font-bold mb-4">Want to Join the Team?</h3>
                     <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-                        We're always looking for passionate students to help grow our community.
-                        Reach out to us if you'd like to get involved!
+                        We{"'"}re always looking for passionate students to help grow our community.
+                        Reach out to us if you{"'"}d like to get involved!
                     </p>
                     <a
                         href="mailto:gdgoncampus.up@gmail.com"

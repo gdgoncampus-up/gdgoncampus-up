@@ -1,26 +1,93 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
   --background: #ffffff;
   --foreground: #171717;
+  --text-soft: #374151;
+  --text-muted: #4b5563;
+  --text-faint: #64748b;
+  --line-muted: #cbd5e1;
+  --dark-900: #ffffff;
+  --dark-800: #f8fafc;
+  --dark-700: #e5e7eb;
+  --dark-600: #cbd5e1;
+  --google-blue: #4285f4;
+  --google-red: #ea4335;
+  --google-yellow: #fbbc04;
+  --google-green: #34a853;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-dark-900: var(--dark-900);
+  --color-dark-800: var(--dark-800);
+  --color-dark-700: var(--dark-700);
+  --color-dark-600: var(--dark-600);
+  --color-google-blue: var(--google-blue);
+  --color-google-red: var(--google-red);
+  --color-google-yellow: var(--google-yellow);
+  --color-google-green: var(--google-green);
+  --color-gray-300: var(--text-soft);
+  --color-gray-400: var(--text-muted);
+  --color-gray-500: var(--text-faint);
+  --color-gray-600: var(--line-muted);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --background: #0a0a0a;
     --foreground: #ededed;
+    --text-soft: #d1d5db;
+    --text-muted: #9ca3af;
+    --text-faint: #6b7280;
+    --line-muted: #4b5563;
+    --dark-900: #0a0a0a;
+    --dark-800: #171717;
+    --dark-700: #262626;
+    --dark-600: #404040;
   }
+}
+
+html[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --text-soft: #d1d5db;
+  --text-muted: #9ca3af;
+  --text-faint: #6b7280;
+  --line-muted: #4b5563;
+  --dark-900: #0a0a0a;
+  --dark-800: #171717;
+  --dark-700: #262626;
+  --dark-600: #404040;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--google-blue), var(--google-red), var(--google-yellow), var(--google-green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.terminal-prompt::before {
+  content: "> ";
+  color: var(--google-green);
 }

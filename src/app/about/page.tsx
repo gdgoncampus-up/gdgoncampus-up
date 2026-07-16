@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { Users, Target, Heart, Lightbulb } from 'lucide-react'
-import Link from 'next/link'
 
 export default function AboutPage() {
     return (
@@ -143,7 +142,7 @@ export default function AboutPage() {
                             href="https://www.famnit.upr.si/en/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-2xl font-semibold text-gray-400 hover:text-white transition-colors"
+                            className="text-2xl font-semibold text-gray-400 hover:text-foreground transition-colors"
                         >
                             FAMNIT
                         </a>
@@ -151,7 +150,7 @@ export default function AboutPage() {
                             href="https://www.famnit.upr.si/sl/studenti/studentski-svet"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-2xl font-semibold text-gray-400 hover:text-white transition-colors"
+                            className="text-2xl font-semibold text-gray-400 hover:text-foreground transition-colors"
                         >
                             Student Council
                         </a>
