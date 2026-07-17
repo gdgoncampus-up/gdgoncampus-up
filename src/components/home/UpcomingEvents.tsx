@@ -1,10 +1,11 @@
 'use client'
 
 import Link from 'next/link'
-import { Calendar, MapPin, Users, ArrowRight } from 'lucide-react'
+import { Calendar, MapPin, ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { events } from '@/lib/data/events'
 import { formatDate } from '@/lib/utils/helpers'
+import Image from 'next/image'
 
 export default function UpcomingEvents() {
     const upcomingEvents = events.filter(e => !e.isPast).slice(0, 3)
@@ -56,9 +57,20 @@ export default function UpcomingEvents() {
                                 className="group bg-dark-800 rounded-2xl border border-dark-700 overflow-hidden hover:border-google-blue transition-all"
                             >
                                 <div className="aspect-video bg-gradient-to-br from-google-blue/20 to-google-red/20 relative overflow-hidden">
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <Calendar className="w-16 h-16 text-white/20" />
-                                    </div>
+                                    {event.image ? (
+                                        <Image
+                                            src={event.image}
+                                            alt=""
+                                            fill
+                                            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                                            className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                    ) : (
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <Calendar className="w-16 h-16 text-white/20" />
+                                        </div>
+                                    )}
+                                    <div className="absolute inset-0 bg-dark-900/20" />
                                     <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-google-blue text-white text-sm font-medium">
                                         {event.type}
                                     </div>

@@ -1,56 +1,22 @@
 import { Event } from '@/types'
+import gdgEvents from './gdg-events.json'
 
-export const events: Event[] = [
-    {
-        id: '1',
-        title: 'The Codebreaker\'s Playground: Cryptography 101',
-        description: 'Dive into the fascinating world of cryptography! Learn the basics of encryption, decryption, and how to keep your data secure.',
-        date: '2024-12-09',
-        time: '18:00',
-        location: 'FAMNIT, University of Primorska',
-        type: 'Workshop',
-        image: '/events/crypto.jpg',
-        registrationLink: 'https://gdg.community.dev/events/details/google-gdg-on-campus-university-of-primorska-koper-slovenia-presents-the-codebreakers-playground-cryptography-101/',
-        tags: ['Cryptography', 'Security', 'Workshop'],
-        isPast: true,
-    },
-    {
-        id: '2',
-        title: 'Inside the Firewall: A Cybersecurity Talk You Won\'t Forget',
-        description: 'Join us for an engaging talk on cybersecurity fundamentals, threat landscape, and best practices to protect your digital assets.',
-        date: '2024-12-04',
-        time: '17:00',
-        location: 'FAMNIT, University of Primorska',
-        type: 'Talk',
-        image: '/events/firewall.jpg',
-        registrationLink: 'https://gdg.community.dev/events/details/google-gdg-on-campus-university-of-primorska-koper-slovenia-presents-inside-the-firewall-a-cybersecurity-talk-you-wont-forget/',
-        tags: ['Cybersecurity', 'Security', 'Talk'],
-        isPast: true,
-    },
-    {
-        id: '3',
-        title: '12 Code Quests - Primorska Edition (AoC 2025)',
-        description: 'Join our Advent of Code community! Solve daily programming puzzles, compete with peers, and sharpen your problem-solving skills.',
-        date: '2024-11-30',
-        time: '16:00',
-        location: 'Online & FAMNIT',
-        type: 'Study Group',
-        image: '/events/aoc.jpg',
-        registrationLink: 'https://gdg.community.dev/events/details/google-gdg-on-campus-university-of-primorska-koper-slovenia-presents-12-code-quests-primorska-edition-aoc-2025/',
-        tags: ['Competitive Programming', 'Advent of Code', 'Study Group'],
-        isPast: true,
-    },
-    {
-        id: '4',
-        title: 'Vibe Coding: A Collaborative Development Workshop',
-        description: 'Experience pair programming and collaborative development in a relaxed, creative environment. Bring your projects or work on ours!',
-        date: '2024-11-29',
-        time: '18:30',
-        location: 'FAMNIT, University of Primorska',
-        type: 'Workshop',
-        image: '/events/vibe.jpg',
-        registrationLink: 'https://gdg.community.dev/events/details/google-gdg-on-campus-university-of-primorska-koper-slovenia-presents-vibe-coding-a-collaborative-development-workshop/',
-        tags: ['Collaboration', 'Development', 'Workshop'],
-        isPast: true,
-    },
-]
+const eventTypes = ['Workshop', 'Talk', 'Study Group', 'Hackathon', 'Social'] as const
+
+function toEventType(type: string): Event['type'] {
+    return eventTypes.includes(type as Event['type']) ? type as Event['type'] : 'Talk'
+}
+
+export const events: Event[] = gdgEvents.map((event) => ({
+    id: event.sourceId,
+    title: event.title,
+    description: event.description,
+    date: event.date,
+    time: event.time,
+    location: event.location || 'FAMNIT, University of Primorska',
+    type: toEventType(event.type),
+    image: event.image,
+    registrationLink: event.registrationLink,
+    tags: event.tags,
+    isPast: event.isPast,
+}))
