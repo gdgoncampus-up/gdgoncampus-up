@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { events } from '@/lib/data/events'
 import { formatDate } from '@/lib/utils/helpers'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function EventsPage() {
     const [filter, setFilter] = useState<'all' | 'upcoming' | 'past'>('all')
@@ -80,31 +81,28 @@ export default function EventsPage() {
                         <div className="flex gap-2">
                             <button
                                 onClick={() => setFilter('all')}
-                                className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                                    filter === 'all'
+                                className={`px-4 py-2 rounded-lg font-medium transition-all ${filter === 'all'
                                         ? 'bg-google-blue text-white'
                                         : 'bg-dark-800 text-gray-400 hover:text-white border border-dark-700'
-                                }`}
+                                    }`}
                             >
                                 All Events
                             </button>
                             <button
                                 onClick={() => setFilter('upcoming')}
-                                className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                                    filter === 'upcoming'
+                                className={`px-4 py-2 rounded-lg font-medium transition-all ${filter === 'upcoming'
                                         ? 'bg-google-green text-white'
                                         : 'bg-dark-800 text-gray-400 hover:text-white border border-dark-700'
-                                }`}
+                                    }`}
                             >
                                 Upcoming
                             </button>
                             <button
                                 onClick={() => setFilter('past')}
-                                className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                                    filter === 'past'
+                                className={`px-4 py-2 rounded-lg font-medium transition-all ${filter === 'past'
                                         ? 'bg-google-yellow text-dark-900'
                                         : 'bg-dark-800 text-gray-400 hover:text-white border border-dark-700'
-                                }`}
+                                    }`}
                             >
                                 Past
                             </button>
@@ -149,11 +147,21 @@ export default function EventsPage() {
                                 transition={{ delay: index * 0.05 }}
                                 className="group bg-dark-800 rounded-2xl border border-dark-700 overflow-hidden hover:border-google-blue transition-all"
                             >
-                                {/* Event Image Placeholder */}
                                 <div className="aspect-video bg-gradient-to-br from-google-blue/20 via-google-red/20 to-google-yellow/20 relative overflow-hidden">
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <Calendar className="w-20 h-20 text-white/10" />
-                                    </div>
+                                    {event.image ? (
+                                        <Image
+                                            src={event.image}
+                                            alt=""
+                                            fill
+                                            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                                            className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                    ) : (
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <Calendar className="w-20 h-20 text-white/10" />
+                                        </div>
+                                    )}
+                                    <div className="absolute inset-0 bg-dark-900/20" />
                                     {event.isPast && (
                                         <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-dark-900/80 text-gray-400 text-sm font-medium">
                                             Past Event
@@ -195,8 +203,8 @@ export default function EventsPage() {
                                                 key={tag}
                                                 className="px-2 py-1 text-xs rounded-md bg-dark-700 text-gray-300"
                                             >
-                        {tag}
-                      </span>
+                                                {tag}
+                                            </span>
                                         ))}
                                     </div>
 

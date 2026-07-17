@@ -93,7 +93,7 @@ This structure follows Next.js 14 best practices and keeps components modular an
 ## 🛠️ Getting Started
 
 ### **Prerequisites**
-- Node.js **18+**
+- Node.js >18 & <23 *(22.23.1 LTS recommended)
 - npm or yarn
 - Git
 
