@@ -1,121 +1,78 @@
-'use client'
-
-import { Github, Linkedin, Mail } from 'lucide-react'
-import { motion } from 'framer-motion'
-import { teamMembers } from '@/lib/data/team'
+import type { Metadata } from 'next'
 import Image from 'next/image'
+import { ArrowUpRight, Mail } from 'lucide-react'
+import { getGdgData } from '@/lib/gdg'
+import { teamMembers } from '@/lib/data/team'
 
-export default function TeamPage() {
+export const metadata: Metadata = {
+    title: 'People',
+    description: 'Meet the student team behind GDG on Campus University of Primorska.',
+}
+
+export default async function TeamPage() {
+    const { chapter, organizers } = await getGdgData()
+    const lead = organizers[0]
+    const crew = teamMembers.filter((member) => member.name !== lead.name)
+
     return (
-        <div className="min-h-screen pt-24 pb-20">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-center mb-16"
-                >
-                    <h1 className="text-5xl font-bold mb-4 terminal-prompt">
-                        Meet Our Team
-                    </h1>
-                    <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                        The passionate individuals driving GDG Primorska forward. Together, we're building a thriving tech community.
-                    </p>
-                </motion.div>
-
-                {/* Team Grid */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                    {teamMembers.map((member, index) => (
-                        <motion.div
-                            key={member.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.05 }}
-                            className="group bg-dark-800 rounded-2xl border border-dark-700 overflow-hidden hover:border-google-blue transition-all"
-                        >
-                            {/* Avatar */}
-                            <div className="aspect-square bg-gradient-to-br from-google-blue/20 via-google-red/20 to-google-yellow/20 relative overflow-hidden">
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="w-32 h-32 rounded-full bg-dark-700 flex items-center justify-center text-4xl font-bold text-google-blue">
-                                        {member.name.split(' ').map(n => n[0]).join('')}
-                                    </div>
-                                </div>
-                                {/* Uncomment when you have images:
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover"
-                />
-                */}
-                            </div>
-
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold mb-1 group-hover:text-google-blue transition-colors">
-                                    {member.name}
-                                </h3>
-                                <div className="text-google-blue font-medium mb-1">
-                                    {member.role}
-                                </div>
-                                {member.company && (
-                                    <div className="text-sm text-gray-400 mb-4">
-                                        {member.company}
-                                    </div>
-                                )}
-
-                                {/* Social Links */}
-                                {(member.github || member.linkedin) && (
-                                    <div className="flex gap-2 mt-4">
-                                        {member.github && (
-                                            <a
-                                                href={member.github}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="p-2 rounded-lg bg-dark-700 hover:bg-google-blue transition-colors"
-                                                aria-label="GitHub"
-                                            >
-                                                <Github className="w-5 h-5" />
-                                            </a>
-                                        )}
-                                        {member.linkedin && (
-                                            <a
-                                                href={member.linkedin}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="p-2 rounded-lg bg-dark-700 hover:bg-google-blue transition-colors"
-                                                aria-label="LinkedIn"
-                                            >
-                                                <Linkedin className="w-5 h-5" />
-                                            </a>
-                                        )}
-                                    </div>
-                                )}
-                            </div>
-                        </motion.div>
-                    ))}
+        <>
+            <section className="page-hero">
+                <div className="site-container page-hero__inner">
+                    <div>
+                        <span className="eyebrow">The people behind the community</span>
+                        <h1>Organized by students. Built for everyone.</h1>
+                        <p>Meet the people who turn ideas into workshops, events, visuals, photos, and welcoming rooms across the University of Primorska.</p>
+                    </div>
+                    <div className="page-hero__aside">
+                        <div className="mini-stat"><strong>{teamMembers.length}</strong><span>Community crew</span></div>
+                        <div className="mini-stat"><strong>{chapter.memberCount}+</strong><span>Chapter members</span></div>
+                    </div>
                 </div>
+            </section>
 
-                {/* Join CTA */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="text-center bg-gradient-to-r from-google-green/10 to-google-blue/10 rounded-2xl p-12 border border-google-green/20"
-                >
-                    <h3 className="text-3xl font-bold mb-4">Want to Join the Team?</h3>
-                    <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-                        We're always looking for passionate students to help grow our community.
-                        Reach out to us if you'd like to get involved!
-                    </p>
-                    <a
-                        href="mailto:gdgoncampus.up@gmail.com"
-                        className="inline-flex items-center px-6 py-3 rounded-lg bg-google-green hover:bg-google-green/90 text-white font-semibold transition-all"
-                    >
-                        <Mail className="w-5 h-5 mr-2" />
-                        Contact Us
-                    </a>
-                </motion.div>
-            </div>
-        </div>
+            <section className="section">
+                <div className="site-container">
+                    <article className="team-lead">
+                        <div className="team-lead__image">
+                            <Image src={lead.image} alt={lead.name} fill sizes="(max-width: 700px) 90vw, 38vw" priority />
+                        </div>
+                        <div className="team-lead__content">
+                            <span className="eyebrow">Chapter lead</span>
+                            <h2>{lead.name}</h2>
+                            <span className="team-role">{lead.role}</span>
+                            <p>{lead.bio}</p>
+                            <a className="button button--primary" href={lead.profileUrl} target="_blank" rel="noreferrer">Official profile <ArrowUpRight size={18} /></a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section className="section section--soft">
+                <div className="site-container">
+                    <div className="section-heading">
+                        <div><span className="eyebrow">Community crew</span><h2>Many roles. One team.</h2></div>
+                        <p>Events come together through communication, design, technology, social media, photography, and plenty of hands-on support.</p>
+                    </div>
+                    <div className="crew-grid">
+                        {crew.map((member) => (
+                            <article className="crew-card" key={member.id}>
+                                <div className="crew-avatar" aria-hidden="true">{member.name.split(' ').map((part) => part[0]).join('')}</div>
+                                <h3>{member.name}</h3>
+                                <p>{member.role}</p>
+                            </article>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="section">
+                <div className="site-container">
+                    <div className="cta-panel">
+                        <div><h2>There is room for your talent, too.</h2><p>Help with an event, take photos, design a post, mentor a team, or bring a completely new idea.</p></div>
+                        <a href="mailto:gdgoncampus.up@gmail.com?subject=I%20want%20to%20help%20GDG%20on%20Campus%20UP" className="button button--white"><Mail size={18} /> Join the crew</a>
+                    </div>
+                </div>
+            </section>
+        </>
     )
 }
